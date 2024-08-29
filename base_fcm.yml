@@ -1,0 +1,67 @@
+sniffer:
+  enable: true
+  ## 对 redir-host 类型识别的流量进行强制嗅探
+  ## 如：Tun、Redir 和 TProxy 并 DNS 为 redir-host 皆属于
+  force-dns-mapping: true
+  ## 对所有未获取到域名的流量进行强制嗅探
+  parse-pure-ip: true
+  # 是否使用嗅探结果作为实际访问，默认 true
+  # 全局配置，优先级低于 sniffer.sniff 实际配置
+  override-destination: true
+  sniff: # TLS 和 QUIC 默认如果不配置 ports 默认嗅探 443
+    # 默认嗅探 80
+    HTTP: # 需要嗅探的端口
+      ports: [80, 8080-8880]
+      # 可覆盖 sniffer.override-destination
+      override-destination: true
+    TLS:
+      # Google FCM 服务器端口 5228
+      ports: [443, 5228, 8443]
+    QUIC:
+      # Google FCM 服务器端口 5228
+      ports: [443, 5228, 8443]
+  force-domain:
+    - +.v2ex.com
+    # Google FCM 服务器域名强制嗅探
+    - "alt1-mtalk.google.com"
+    - "alt2-mtalk.google.com"
+    - "alt3-mtalk.google.com"
+    - "alt4-mtalk.google.com"
+    - "alt5-mtalk.google.com"
+    - "alt6-mtalk.google.com"
+    - "alt7-mtalk.google.com"
+    - "alt8-mtalk.google.com"
+    - "mtalk.google.com"
+    - "dl.google.com"
+    - "dl.l.google.com"
+
+dns:
+  # 配置不使用 fake-ip 的域名。适用于 Fack-IP 模式。Redir-Host 模式可跳过
+  fake-ip-filter:
+    - "alt1-mtalk.google.com"
+    - "alt2-mtalk.google.com"
+    - "alt3-mtalk.google.com"
+    - "alt4-mtalk.google.com"
+    - "alt5-mtalk.google.com"
+    - "alt6-mtalk.google.com"
+    - "alt7-mtalk.google.com"
+    - "alt8-mtalk.google.com"
+    - "mtalk.google.com"
+    - "dl.google.com"
+    - "dl.l.google.com"
+
+  # 配置查询域名使用的 DNS 服务器
+  nameserver-policy:
+    "geosite:category-ads-all": rcode://success
+    "geosite:gfw":
+      [
+        "https://1.1.1.2/dns-query#h3=true",
+        "https://1.0.0.2/dns-query#h3=true",
+        "https://[2606:4700:4700::64]/dns-query#h3=true",
+        "https://[2606:4700:4700::6400]/dns-query#h3=true",
+      ]
+    # 包含 Google FCM 和 DL 服务器域名解析
+    "geosite:google":
+      ["8.8.8.8", "8.8.4.4", "https://[2001:4860:4860::6464]/dns-query#h3=true"]
+    "geosite:microsoft@cn,apple-cn,category-games@cn,cn,private":
+      ["https://dns.alidns.com/dns-query#h3=true", "https://doh.pub/dns-query"]
