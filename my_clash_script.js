@@ -616,6 +616,7 @@ function main(config) {
     "DOMAIN-SUFFIX,manganato.com,美国节点",
     "DOMAIN-SUFFIX,chapmanganato.to,美国节点",
     "DOMAIN-SUFFIX,rule34video.com,美国节点",
+    "DOMAIN-SUFFIX,boomio-cdn.com,美国节点",
     "DOMAIN-SUFFIX,rule34.xxx,美国节点",
     "DOMAIN-SUFFIX,pickpackapp.com,全球直连",
     "RULE-SET,movie,movie",
