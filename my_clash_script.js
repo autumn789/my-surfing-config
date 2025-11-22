@@ -619,6 +619,7 @@ function main(config) {
     "DOMAIN-SUFFIX,boomio-cdn.com,美国节点",
     "DOMAIN-SUFFIX,rule34.xxx,美国节点",
     "DOMAIN-SUFFIX,pickpackapp.com,全球直连",
+    "DOMAIN-SUFFIX,mypikpak.com,全球直连",
     "RULE-SET,movie,movie",
     "RULE-SET,LocalAreaNetwork,全球直连",
     "RULE-SET,UnBan,全球直连",
