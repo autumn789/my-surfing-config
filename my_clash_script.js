@@ -23,7 +23,7 @@ function main(config) {
       type: "select",
     },
     {
-      name: "movie",
+      name: "电影",
       icon: "https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Media.png",
       type: "select",
       proxies: [
@@ -620,7 +620,7 @@ function main(config) {
     "DOMAIN-SUFFIX,rule34.xxx,美国节点",
     "DOMAIN-SUFFIX,pickpackapp.com,全球直连",
     "DOMAIN-SUFFIX,mypikpak.com,全球直连",
-    "RULE-SET,movie,movie",
+    "RULE-SET,movie,电影",
     "RULE-SET,LocalAreaNetwork,全球直连",
     "RULE-SET,UnBan,全球直连",
     "RULE-SET,BanAD,广告拦截",
