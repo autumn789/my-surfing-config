@@ -1,4 +1,5 @@
 function main(config) {
+  // https://raw.githubusercontent.com/autumn789/my-surfing-config/refs/heads/main/my_clash_script.js
   config["proxy-groups"] = [
     {
       name: "节点选择",
@@ -44,9 +45,9 @@ function main(config) {
       icon: "https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png",
       type: "select",
       proxies: [
+        "狮城节点",
         "美国节点",
         "节点选择",
-        "狮城节点",
         "香港节点",
         "台湾节点",
         "日本节点",
