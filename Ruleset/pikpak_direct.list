@@ -1,1 +1,4 @@
 DOMAIN-SUFFIX,mypikpak.com
+
+# pc 上会走这个域名下载
+DOMAIN-SUFFIX,pickpackapp.com
