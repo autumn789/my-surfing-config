@@ -42,7 +42,7 @@ const ruleOptions = {
   line: false, // Line通讯软件
   whatsapp: false, // Whatsapp
   games: false, // 游戏策略组
-  japan: false, // 日本网站策略组
+  japan: true, // 日本网站策略组
   // tracker: true, // 网络分析和跟踪服务
   ads: true, // 常见的网络广告
 }
