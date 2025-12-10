@@ -1,6 +1,5 @@
 /***
- * https://raw.githubusercontent.com/autumn789/my-surfing-config/refs/heads/main/my_clash_script.js
- * Clash Verge Rev / Mihomo Party 优化脚本
+ * https://raw.githubusercontent.com/autumn789/my-surfing-config/refs/heads/main/fork_yanet_script.js * Clash Verge Rev / Mihomo Party 优化脚本
  * 原作者: dahaha-365 (YaNet)
  * Github：https://github.com/dahaha-365/YaNet
  */
@@ -114,9 +113,9 @@ const regionDefinitions = [
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png",
   },
   {
-    name: "TW台湾省",
+    name: "TW台湾",
     regex: /台湾|🇹🇼|tw|taiwan|tai wan/i,
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png",
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png",
   },
   {
     name: "GB英国",
