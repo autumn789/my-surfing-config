@@ -61,36 +61,41 @@ const skipIps = [
 // 初始规则
 const rules = [
   "RULE-SET,applications,下载软件",
-  "PROCESS-NAME,SunloginClient,DIRECT",
-  "PROCESS-NAME,SunloginClient.exe,DIRECT",
-  "PROCESS-NAME,AnyDesk,DIRECT",
-  "PROCESS-NAME,AnyDesk.exe,DIRECT",
-  "PROCESS-NAME,节点小宝,DIRECT",
-  "PROCESS-NAME,nblink.exe,DIRECT",
-  "PROCESS-NAME,NodeBabyLinkBackup,DIRECT",
-  "PROCESS-NAME,NodeBabyLinkClient,DIRECT",
-  "PROCESS-NAME,NodeBabyLinkRfile,DIRECT",
-  "PROCESS-NAME,NodeBabyLinkBackup.exe,DIRECT",
-  "PROCESS-NAME,NodeBabyLinkClient.exe,DIRECT",
-  "PROCESS-NAME,NodeBabyLinkDevice.exe,DIRECT",
-  "PROCESS-NAME,NodeBabyLinkOwjdxb.exe,DIRECT",
-  "PROCESS-NAME,NodeBabyLinkRfile.exe,DIRECT",
-  "PROCESS-NAME,NodeBabyLinkService.exe,DIRECT",
-  "DOMAIN-SUFFIX,iepose.com,DIRECT",
-  "DOMAIN-SUFFIX,ionewu.com,DIRECT",
+  // "PROCESS-NAME,SunloginClient,DIRECT",
+  // "PROCESS-NAME,SunloginClient.exe,DIRECT",
+  // "PROCESS-NAME,AnyDesk,DIRECT",
+  // "PROCESS-NAME,AnyDesk.exe,DIRECT",
+  // "PROCESS-NAME,节点小宝,DIRECT",
+  // "PROCESS-NAME,nblink.exe,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkBackup,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkClient,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkRfile,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkBackup.exe,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkClient.exe,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkDevice.exe,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkOwjdxb.exe,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkRfile.exe,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkService.exe,DIRECT",
+  // "DOMAIN-SUFFIX,iepose.com,DIRECT",
+  // "DOMAIN-SUFFIX,ionewu.com,DIRECT",
 ]
 
 // 地区定义 (Icons 更新为 GitHub Raw)
 const regionDefinitions = [
   {
-    name: "HK香港",
-    regex: /港|🇭🇰|hk|hongkong|hong kong/i,
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png",
+    name: "SG新加坡",
+    regex: /新加坡|🇸🇬|sg|singapore/i,
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png",
   },
   {
     name: "US美国",
     regex: /(?!.*aus)(?=.*(美|🇺🇸|us(?!t)|usa|american|united states)).*/i,
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png",
+  },
+  {
+    name: "HK香港",
+    regex: /港|🇭🇰|hk|hongkong|hong kong/i,
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png",
   },
   {
     name: "JP日本",
@@ -101,11 +106,6 @@ const regionDefinitions = [
     name: "KR韩国",
     regex: /韩|🇰🇷|kr|korea/i,
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png",
-  },
-  {
-    name: "SG新加坡",
-    regex: /新加坡|🇸🇬|sg|singapore/i,
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png",
   },
   {
     name: "CN中国大陆",
