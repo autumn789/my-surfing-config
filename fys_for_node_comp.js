@@ -61,8 +61,23 @@ const skipIps = [
 // 初始规则
 const rules = [
   "RULE-SET,applications,下载软件",
-  "DOMAIN-SUFFIX,mypikpak.com,DIRECT",
-  // "PROCESS-NAME,example.exe,DIRECT",
+  // "PROCESS-NAME,SunloginClient,DIRECT",
+  // "PROCESS-NAME,SunloginClient.exe,DIRECT",
+  // "PROCESS-NAME,AnyDesk,DIRECT",
+  // "PROCESS-NAME,AnyDesk.exe,DIRECT",
+  // "PROCESS-NAME,节点小宝,DIRECT",
+  // "PROCESS-NAME,nblink.exe,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkBackup,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkClient,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkRfile,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkBackup.exe,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkClient.exe,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkDevice.exe,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkOwjdxb.exe,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkRfile.exe,DIRECT",
+  // "PROCESS-NAME,NodeBabyLinkService.exe,DIRECT",
+  // "DOMAIN-SUFFIX,iepose.com,DIRECT",
+  // "DOMAIN-SUFFIX,ionewu.com,DIRECT",
 ]
 
 // 地区定义 (Icons 更新为 GitHub Raw)
