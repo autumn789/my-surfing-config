@@ -45,6 +45,7 @@ const ruleOptions = {
   japan: true, // 日本网站策略组
   // tracker: true, // 网络分析和跟踪服务
   ads: true, // 常见的网络广告
+  movie: true, // 电影策略组
 }
 
 const skipIps = [
@@ -418,6 +419,20 @@ const serviceConfigs = [
       behavior: "domain",
     },
   },
+  {
+    key: "movie",
+    name: "电影",
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png",
+    url: "https://www.google.com/generate_204",
+    rules: ["RULE-SET,movie,电影"],
+    provider: {
+      key: "movie",
+      url: "https://raw.githubusercontent.com/autumn789/my-surfing-config/main/Ruleset/movie.list",
+      path: "./ruleset/autumn789/movie.list",
+      format: "text",
+      behavior: "domain",
+    },
+  },
 ]
 
 // --- 3. 主入口 ---
@@ -520,6 +535,7 @@ function main(config) {
       })
   )
   const otherProxies = []
+  const allValidProxies = []
 
   for (let i = 0; i < proxyCount; i++) {
     const proxy = proxies[i]
@@ -533,6 +549,8 @@ function main(config) {
         continue
       }
     }
+
+    allValidProxies.push(name)
 
     // 尝试匹配地区
     for (const region of regionDefinitions) {
@@ -606,6 +624,8 @@ function main(config) {
         groupProxies = ["REJECT", "直连", "默认节点"]
       } else if (svc.key === "biliintl" || svc.key === "bahamut") {
         groupProxies = ["默认节点", "直连", ...regionGroupNames]
+      } else if (svc.key === "movie") {
+        groupProxies = ["默认节点", "直连", ...allValidProxies]
       } else {
         groupProxies = ["默认节点", ...regionGroupNames, "直连"]
       }
