@@ -422,7 +422,7 @@ const serviceConfigs = [
   {
     key: "movie",
     name: "电影",
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png",
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png",
     url: "https://www.google.com/generate_204",
     rules: ["RULE-SET,movie,电影"],
     provider: {
