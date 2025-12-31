@@ -424,7 +424,10 @@ const serviceConfigs = [
     name: "电影",
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png",
     url: "https://www.google.com/generate_204",
-    rules: ["RULE-SET,movie,电影"],
+    rules: [
+      "DOMAIN-SUFFIX,missav.ai,电影",
+      "RULE-SET,movie,电影"
+    ],
     provider: {
       key: "movie",
       url: "https://raw.githubusercontent.com/autumn789/my-surfing-config/main/Ruleset/movie.list",
