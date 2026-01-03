@@ -100,7 +100,7 @@ const regionDefinitions = [
   },
   {
     name: "TW台湾",
-    regex: /台湾|🇹🇼|tw|taiwan|tai wan/i,
+    regex: /台湾|🇹🇼|\btw\b|taiwan|tai wan/i,
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png",
   },
   {
