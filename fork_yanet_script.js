@@ -63,6 +63,7 @@ const skipIps = [
 const rules = [
   "RULE-SET,applications,下载软件",
   "DOMAIN-SUFFIX,mypikpak.com,DIRECT",
+  "DOMAIN,oss6.cauenvao.click,DIRECT",
   // "PROCESS-NAME,example.exe,DIRECT",
 ]
 
