@@ -63,7 +63,7 @@ const skipIps = [
 // 初始规则
 const rules = [
   "RULE-SET,applications,下载软件",
-  "DOMAIN-SUFFIX,mypikpak.com,DIRECT",
+//   "DOMAIN-SUFFIX,mypikpak.com,DIRECT",
   "DOMAIN-SUFFIX,ouonetwork.com,DIRECT",
   "DOMAIN,oss6.cauenvao.click,DIRECT",
   // "PROCESS-NAME,example.exe,DIRECT",
@@ -71,6 +71,11 @@ const rules = [
 
 // 地区定义 (Icons 更新为 GitHub Raw)
 const regionDefinitions = [
+  {
+    name: "JP日本",
+    regex: /日本|🇯🇵|jp|japan/i,
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png",
+  },
   {
     name: "SG新加坡",
     regex: /新加坡|🇸🇬|sg|singapore/i,
@@ -85,11 +90,6 @@ const regionDefinitions = [
     name: "HK香港",
     regex: /港|🇭🇰|hk|hongkong|hong kong/i,
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png",
-  },
-  {
-    name: "JP日本",
-    regex: /日本|🇯🇵|jp|japan/i,
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png",
   },
   {
     name: "KR韩国",
