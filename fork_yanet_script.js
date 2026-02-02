@@ -431,6 +431,7 @@ const serviceConfigs = [
     rules: [
       "DOMAIN-SUFFIX,missav.ai,电影",
       "DOMAIN-SUFFIX,javdb.com,电影",
+      "DOMAIN-SUFFIX,jdbstatic.com,电影",
     ],
     provider: {
       key: "movie",
