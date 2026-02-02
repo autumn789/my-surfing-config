@@ -430,6 +430,7 @@ const serviceConfigs = [
     url: "https://www.google.com/generate_204",
     rules: [
       "DOMAIN-SUFFIX,missav.ai,电影",
+      "DOMAIN-SUFFIX,surrit.com,电影",
       "DOMAIN-SUFFIX,javdb.com,电影",
       "DOMAIN-SUFFIX,jdbstatic.com,电影",
     ],
