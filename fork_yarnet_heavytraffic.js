@@ -1,7 +1,7 @@
 // https://raw.githubusercontent.com/autumn789/my-surfing-config/refs/heads/main/fork_yarnet_heavytraffic.js
 
 /***
- *  Clash Verge Rev / Mihomo Party 优化脚本
+ *  Clash Verge Rev / Mihomo Party 优化脚本 test
  * 原作者: dahaha-365 (YaNet)
  * Github：https://github.com/dahaha-365/YaNet
  */
