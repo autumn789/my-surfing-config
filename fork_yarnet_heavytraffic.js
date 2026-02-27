@@ -630,15 +630,20 @@ function main(config) {
   serviceConfigs.forEach((svc) => {
     if (ruleOptions[svc.key]) {
       rules.push(...svc.rules)
-      if (svc.provider) {
-        ruleProviders[svc.provider.key] = {
+      const providers = [
+        ...(svc.provider ? [svc.provider] : []),
+        ...(Array.isArray(svc.providers) ? svc.providers : []),
+      ]
+
+      providers.forEach((provider) => {
+        ruleProviders[provider.key] = {
           ...ruleProviderCommon,
-          behavior: svc.provider.behavior,
-          format: svc.provider.format,
-          url: svc.provider.url,
-          path: svc.provider.path,
+          behavior: provider.behavior,
+          format: provider.format,
+          url: provider.url,
+          path: provider.path,
         }
-      }
+      })
 
       let groupProxies
       if (svc.reject) {
