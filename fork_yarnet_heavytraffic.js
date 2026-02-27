@@ -412,9 +412,8 @@ const serviceConfigs = [
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JP.png",
     url: "https://r.r10s.jp/com/img/home/logo/touch.png",
     rules: [
-      "DOMAIN-SUFFIX,dmm.co.jp,日本网站",
-      "DOMAIN-SUFFIX,dmm.com,日本网站",
       "RULE-SET,category-bank-jp,日本网站",
+      "RULE-SET,Dmm,日本网站",
       "GEOIP,jp,日本网站,no-resolve",
     ],
     provider: {
@@ -422,6 +421,13 @@ const serviceConfigs = [
       url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-bank-jp.mrs",
       path: "./ruleset/MetaCubeX/category-bank-jp.mrs",
       format: "mrs",
+      behavior: "domain",
+    },
+    provider: {
+      key: "Dmm",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/Dmm.list",
+      path: "./ruleset/ACL4SSR/Dmm.list",
+      format: "text",
       behavior: "domain",
     },
   },
@@ -436,14 +442,23 @@ const serviceConfigs = [
       "DOMAIN-SUFFIX,nineyu.com,电影",
       "DOMAIN-SUFFIX,javdb.com,电影",
       "DOMAIN-SUFFIX,jdbstatic.com,电影",
+      "RULE-SET,eh-gallery,电影",
+      // "RULE-SET,my-movie,电影", // 取消注释以启用下方 provider
     ],
     provider: {
-      key: "movie",
-      url: "https://raw.githubusercontent.com/autumn789/my-surfing-config/main/Ruleset/movie.list",
-      path: "./ruleset/autumn789/movie.list",
+      key: "eh-gallery",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/EHGallery.list",
+      path: "./ruleset/ACL4SSR/EHGallery.list",
       format: "text",
       behavior: "domain",
     },
+    // provider: {
+    //   key: "my-movie",
+    //   url: "https://raw.githubusercontent.com/autumn789/my-surfing-config/main/Ruleset/movie.list",
+    //   path: "./ruleset/autumn789/movie.list",
+    //   format: "text",
+    //   behavior: "domain",
+    // },
   },
 ]
 
@@ -544,7 +559,7 @@ function main(config) {
       (regionGroups[r.name] = {
         ...r,
         proxies: [],
-      })
+      }),
   )
   const otherProxies = []
   const allValidProxies = []
@@ -613,7 +628,7 @@ function main(config) {
     name: "默认节点",
     type: "select",
     proxies: [...regionGroupNames, "其他节点", "直连"].filter(
-      (n) => n !== "其他节点" || otherProxies.length > 0
+      (n) => n !== "其他节点" || otherProxies.length > 0,
     ),
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png",
   })
@@ -659,7 +674,7 @@ function main(config) {
     "GEOIP,private,DIRECT,no-resolve",
     "GEOSITE,cn,国内网站",
     "GEOIP,cn,国内网站,no-resolve",
-    "MATCH,其他外网"
+    "MATCH,其他外网",
   )
 
   functionalGroups.push(
@@ -684,7 +699,7 @@ function main(config) {
       proxies: ["直连", "默认节点", ...regionGroupNames],
       url: "http://wifi.vivo.com.cn/generate_204",
       icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/StreamingCN.png",
-    }
+    },
   )
 
   // 3.5 组装最终结果
