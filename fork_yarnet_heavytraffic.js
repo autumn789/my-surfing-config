@@ -416,20 +416,22 @@ const serviceConfigs = [
       "RULE-SET,Dmm,日本网站",
       "GEOIP,jp,日本网站,no-resolve",
     ],
-    provider: {
-      key: "category-bank-jp",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-bank-jp.mrs",
-      path: "./ruleset/MetaCubeX/category-bank-jp.mrs",
-      format: "mrs",
-      behavior: "domain",
-    },
-    provider: {
-      key: "Dmm",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/Dmm.list",
-      path: "./ruleset/ACL4SSR/Dmm.list",
-      format: "text",
-      behavior: "domain",
-    },
+    providers: [
+      {
+        key: "category-bank-jp",
+        url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-bank-jp.mrs",
+        path: "./ruleset/MetaCubeX/category-bank-jp.mrs",
+        format: "mrs",
+        behavior: "domain",
+      },
+      {
+        key: "Dmm",
+        url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/Dmm.list",
+        path: "./ruleset/ACL4SSR/Dmm.list",
+        format: "text",
+        behavior: "domain",
+      },
+    ],
   },
   {
     key: "movie",
@@ -443,7 +445,6 @@ const serviceConfigs = [
       "DOMAIN-SUFFIX,javdb.com,电影",
       "DOMAIN-SUFFIX,jdbstatic.com,电影",
       "RULE-SET,eh-gallery,电影",
-      // "RULE-SET,my-movie,电影", // 取消注释以启用下方 provider
     ],
     provider: {
       key: "eh-gallery",
@@ -452,13 +453,6 @@ const serviceConfigs = [
       format: "text",
       behavior: "domain",
     },
-    // provider: {
-    //   key: "my-movie",
-    //   url: "https://raw.githubusercontent.com/autumn789/my-surfing-config/main/Ruleset/movie.list",
-    //   path: "./ruleset/autumn789/movie.list",
-    //   format: "text",
-    //   behavior: "domain",
-    // },
   },
 ]
 
