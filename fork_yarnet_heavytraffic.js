@@ -429,7 +429,7 @@ const serviceConfigs = [
         url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/Dmm.list",
         path: "./ruleset/ACL4SSR/Dmm.list",
         format: "text",
-        behavior: "domain",
+        behavior: "classical",
       },
     ],
   },
@@ -451,7 +451,7 @@ const serviceConfigs = [
       url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/EHGallery.list",
       path: "./ruleset/ACL4SSR/EHGallery.list",
       format: "text",
-      behavior: "domain",
+      behavior: "classical",
     },
   },
 ]
