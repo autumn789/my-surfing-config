@@ -603,7 +603,7 @@ function main(config) {
   })
 
   const regionGroupNames = generatedRegionGroups.map((g) => g.name)
-  const manualAllGroupName = "全部节点"
+  const manualAllGroupName = "手动选择"
   const manualAllGroup = {
     ...groupBaseOption,
     name: manualAllGroupName,
@@ -624,17 +624,21 @@ function main(config) {
 
   // 3.3 构建功能策略组
   const functionalGroups = []
-  functionalGroups.push(manualAllGroup)
 
   functionalGroups.push({
     ...groupBaseOption,
     name: "默认节点",
     type: "select",
-    proxies: [manualAllGroupName, ...regionGroupNames, "其他节点", "直连"].filter(
-      (n) => n !== "其他节点" || otherProxies.length > 0,
-    ),
+    proxies: [
+      manualAllGroupName,
+      ...regionGroupNames,
+      "其他节点",
+      "直连",
+    ].filter((n) => n !== "其他节点" || otherProxies.length > 0),
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png",
   })
+
+  functionalGroups.push(manualAllGroup)
 
   serviceConfigs.forEach((svc) => {
     if (ruleOptions[svc.key]) {
@@ -658,11 +662,26 @@ function main(config) {
       if (svc.reject) {
         groupProxies = ["REJECT", "直连", "默认节点", manualAllGroupName]
       } else if (svc.key === "biliintl" || svc.key === "bahamut") {
-        groupProxies = ["默认节点", manualAllGroupName, "直连", ...regionGroupNames]
+        groupProxies = [
+          "默认节点",
+          manualAllGroupName,
+          "直连",
+          ...regionGroupNames,
+        ]
       } else if (svc.key === "movie") {
-        groupProxies = ["默认节点", manualAllGroupName, "直连", ...allValidProxies]
+        groupProxies = [
+          "默认节点",
+          manualAllGroupName,
+          "直连",
+          ...allValidProxies,
+        ]
       } else {
-        groupProxies = ["默认节点", manualAllGroupName, ...regionGroupNames, "直连"]
+        groupProxies = [
+          "默认节点",
+          manualAllGroupName,
+          ...regionGroupNames,
+          "直连",
+        ]
       }
 
       functionalGroups.push({
@@ -704,7 +723,12 @@ function main(config) {
       ...groupBaseOption,
       name: "其他外网",
       type: "select",
-      proxies: ["默认节点", manualAllGroupName, "国内网站", ...regionGroupNames],
+      proxies: [
+        "默认节点",
+        manualAllGroupName,
+        "国内网站",
+        ...regionGroupNames,
+      ],
       icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming!CN.png",
     },
     {
