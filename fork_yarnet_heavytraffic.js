@@ -603,6 +603,14 @@ function main(config) {
   })
 
   const regionGroupNames = generatedRegionGroups.map((g) => g.name)
+  const manualAllGroupName = "全部节点"
+  const manualAllGroup = {
+    ...groupBaseOption,
+    name: manualAllGroupName,
+    type: "select",
+    proxies: allValidProxies.length > 0 ? allValidProxies : ["直连"],
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/World_Map.png",
+  }
 
   if (otherProxies.length > 0) {
     generatedRegionGroups.push({
@@ -616,12 +624,13 @@ function main(config) {
 
   // 3.3 构建功能策略组
   const functionalGroups = []
+  functionalGroups.push(manualAllGroup)
 
   functionalGroups.push({
     ...groupBaseOption,
     name: "默认节点",
     type: "select",
-    proxies: [...regionGroupNames, "其他节点", "直连"].filter(
+    proxies: [manualAllGroupName, ...regionGroupNames, "其他节点", "直连"].filter(
       (n) => n !== "其他节点" || otherProxies.length > 0,
     ),
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png",
@@ -647,13 +656,13 @@ function main(config) {
 
       let groupProxies
       if (svc.reject) {
-        groupProxies = ["REJECT", "直连", "默认节点"]
+        groupProxies = ["REJECT", "直连", "默认节点", manualAllGroupName]
       } else if (svc.key === "biliintl" || svc.key === "bahamut") {
-        groupProxies = ["默认节点", "直连", ...regionGroupNames]
+        groupProxies = ["默认节点", manualAllGroupName, "直连", ...regionGroupNames]
       } else if (svc.key === "movie") {
-        groupProxies = ["默认节点", "直连", ...allValidProxies]
+        groupProxies = ["默认节点", manualAllGroupName, "直连", ...allValidProxies]
       } else {
-        groupProxies = ["默认节点", ...regionGroupNames, "直连"]
+        groupProxies = ["默认节点", manualAllGroupName, ...regionGroupNames, "直连"]
       }
 
       functionalGroups.push({
@@ -681,21 +690,28 @@ function main(config) {
       ...groupBaseOption,
       name: "下载软件",
       type: "select",
-      proxies: ["直连", "REJECT", "默认节点", "国内网站", ...regionGroupNames],
+      proxies: [
+        "直连",
+        "REJECT",
+        "默认节点",
+        manualAllGroupName,
+        "国内网站",
+        ...regionGroupNames,
+      ],
       icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Download.png",
     },
     {
       ...groupBaseOption,
       name: "其他外网",
       type: "select",
-      proxies: ["默认节点", "国内网站", ...regionGroupNames],
+      proxies: ["默认节点", manualAllGroupName, "国内网站", ...regionGroupNames],
       icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming!CN.png",
     },
     {
       ...groupBaseOption,
       name: "国内网站",
       type: "select",
-      proxies: ["直连", "默认节点", ...regionGroupNames],
+      proxies: ["直连", "默认节点", manualAllGroupName, ...regionGroupNames],
       url: "http://wifi.vivo.com.cn/generate_204",
       icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/StreamingCN.png",
     },
