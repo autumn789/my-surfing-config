@@ -66,6 +66,7 @@ const rules = [
   "RULE-SET,applications,下载软件",
   "DOMAIN-SUFFIX,ouonetwork.com,DIRECT",
   "DOMAIN,oss6.cauenvao.click,DIRECT",
+  "DOMAIN-SUFFIX,steamdb.info,DIRECT",
   "ip-cidr,23.95.240.14/32,DIRECT",
   // "DOMAIN-SUFFIX,mypikpak.com,DIRECT",
   // "PROCESS-NAME,example.exe,DIRECT",
