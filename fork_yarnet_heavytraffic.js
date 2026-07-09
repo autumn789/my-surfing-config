@@ -24,7 +24,7 @@ const enable = true
 const ruleOptions = {
   apple: false, // 苹果服务
   microsoft: false, // 微软服务
-  github: false, // Github服务
+  github: true, // Github服务
   google: true, // Google服务
   openai: true, // 国外AI和GPT
   spotify: false, // Spotify
