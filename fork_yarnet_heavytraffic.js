@@ -26,6 +26,7 @@ const ruleOptions = {
   microsoft: false, // 微软服务
   github: true, // Github服务
   google: true, // Google服务
+  gemini: true, // Gemini AI
   openai: true, // 国外AI和GPT
   spotify: false, // Spotify
   youtube: false, // YouTube
@@ -224,6 +225,20 @@ const multiplierRegex =
 // --- 2. 服务规则数据结构 ---
 // Icons 更新为 GitHub Raw
 const serviceConfigs = [
+  {
+    key: "gemini",
+    name: "gemini",
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png",
+    url: "https://gemini.google.com/",
+    rules: ["RULE-SET,google-gemini,gemini"],
+    provider: {
+      key: "google-gemini",
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/google-gemini.mrs",
+      path: "./ruleset/MetaCubeX/google-gemini.mrs",
+      format: "mrs",
+      behavior: "domain",
+    },
+  },
   {
     key: "openai",
     name: "国外AI",
