@@ -25,8 +25,7 @@ const ruleOptions = {
   apple: false, // 苹果服务
   microsoft: false, // 微软服务
   github: true, // Github服务
-  google: true, // Google服务
-  gemini: true, // Gemini AI
+  google: true, // Google服务（含 Gemini）
   openai: true, // 国外AI和GPT
   spotify: false, // Spotify
   youtube: false, // YouTube
@@ -226,18 +225,14 @@ const multiplierRegex =
 // Icons 更新为 GitHub Raw
 const serviceConfigs = [
   {
-    key: "gemini",
-    name: "gemini",
+    key: "google",
+    name: "谷歌服务",
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png",
-    url: "https://gemini.google.com/",
-    rules: ["RULE-SET,google-gemini,gemini"],
-    provider: {
-      key: "google-gemini",
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/google-gemini.mrs",
-      path: "./ruleset/MetaCubeX/google-gemini.mrs",
-      format: "mrs",
-      behavior: "domain",
-    },
+    url: "http://www.google.com/generate_204",
+    rules: [
+      "GEOSITE,google,谷歌服务",
+      "GEOSITE,google-gemini,谷歌服务",
+    ],
   },
   {
     key: "openai",
@@ -403,13 +398,6 @@ const serviceConfigs = [
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_2.png",
     url: "http://www.apple.com/library/test/success.html",
     rules: ["GEOSITE,apple-cn,苹果服务"],
-  },
-  {
-    key: "google",
-    name: "谷歌服务",
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png",
-    url: "http://www.google.com/generate_204",
-    rules: ["GEOSITE,google,谷歌服务"],
   },
   {
     key: "github",
