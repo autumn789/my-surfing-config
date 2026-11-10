@@ -217,9 +217,15 @@ const ruleProviders = {
   },
 }
 
-// 倍率正则预编译
-const multiplierRegex =
-  /(?<=[xX✕✖⨉倍率])([1-9]+(\.\d+)*|0{1}\.\d+)(?=[xX✕✖⨉倍率])*/i
+// 倍率解析：支持 x10 / ×10 / 10x / 10倍 / 倍率:10 / 0.5x 等写法
+const ratioPrefixRegex =
+  /(?:^|[^A-Za-z])(?:[xX×✕✖⨉]|倍率?)\s*[:：]?\s*(\d+(?:\.\d+)?)/
+const ratioSuffixRegex =
+  /(\d+(?:\.\d+)?)\s*(?:倍率?|[xX×✕✖⨉](?![A-Za-z]))/
+const getNodeRatio = (name) => {
+  const match = ratioPrefixRegex.exec(name) || ratioSuffixRegex.exec(name)
+  return match ? parseFloat(match[1]) : null
+}
 
 // --- 2. 服务规则数据结构 ---
 // Icons 更新为 GitHub Raw
@@ -563,6 +569,7 @@ function main(config) {
       }),
   )
   const otherProxies = []
+  const highRatioProxies = []
   const allValidProxies = []
 
   for (let i = 0; i < proxyCount; i++) {
@@ -572,8 +579,9 @@ function main(config) {
 
     // 检查倍率
     if (excludeHighPercentage) {
-      const match = multiplierRegex.exec(name)
-      if (match && parseFloat(match[1]) > globalRatioLimit) {
+      const ratio = getNodeRatio(name)
+      if (ratio !== null && ratio > globalRatioLimit) {
+        highRatioProxies.push(name)
         continue
       }
     }
@@ -646,6 +654,16 @@ function main(config) {
   })
 
   functionalGroups.push(manualAllGroup)
+
+  if (highRatioProxies.length > 0) {
+    functionalGroups.push({
+      ...groupBaseOption,
+      name: "高倍率节点",
+      type: "select",
+      proxies: highRatioProxies,
+      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/VIP.png",
+    })
+  }
 
   serviceConfigs.forEach((svc) => {
     if (ruleOptions[svc.key]) {
