@@ -78,14 +78,14 @@ const rules = [
 // 地区定义 (Icons 更新为 GitHub Raw)
 const regionDefinitions = [
   {
-    name: "JP日本",
-    regex: /日本|🇯🇵|jp|japan/i,
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png",
-  },
-  {
     name: "SG新加坡",
     regex: /新加坡|🇸🇬|sg|singapore/i,
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png",
+  },
+  {
+    name: "JP日本",
+    regex: /日本|🇯🇵|jp|japan/i,
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png",
   },
   {
     name: "US美国",
@@ -649,7 +649,12 @@ function main(config) {
       ...regionGroupNames,
       "其他节点",
       "直连",
-    ].filter((n) => n !== "其他节点" || otherProxies.length > 0),
+      "高倍率节点",
+    ].filter(
+      (n) =>
+        (n !== "其他节点" || otherProxies.length > 0) &&
+        (n !== "高倍率节点" || highRatioProxies.length > 0),
+    ),
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png",
   })
 
