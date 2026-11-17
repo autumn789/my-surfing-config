@@ -98,6 +98,11 @@ const regionDefinitions = [
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png",
   },
   {
+    name: "MO澳门",
+    regex: /澳门|🇲🇴|\bmo\b|macao|macau/i,
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Macao.png",
+  },
+  {
     name: "KR韩国",
     regex: /韩|🇰🇷|kr|korea/i,
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png",
